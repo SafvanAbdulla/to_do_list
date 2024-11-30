@@ -26,14 +26,14 @@ const displayTaskList = () => {
 
   if(todayArr.length){
     const todayHead = document.createElement('h2');
-    dueHead.textContent = 'Today';
+    todayHead.textContent = 'Today';
     taskList.appendChild(todayHead);
     todayArr.forEach(task => displaySingleTask(task));
   }
 
   if(upcoming.length){
     const upHead = document.createElement('h2');
-    dueHead.textContent = 'Upcoming Tasks';
+    upHead.textContent = 'Upcoming Tasks';
     taskList.appendChild(upHead);
     due.forEach(task => displaySingleTask(task));
   }
