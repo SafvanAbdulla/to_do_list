@@ -6,6 +6,7 @@ const addTaskButton = document.getElementById('addTaskButton');
 
 let tasks=JSON.parse(localStorage.getItem('tasks')) || [];
 const today = new Date().toISOString().split('T')[0];
+console.log(today);
 
 const saveTask=()=>{
   localStorage.setItem('tasks',JSON.stringify(tasks));
