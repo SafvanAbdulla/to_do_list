@@ -56,6 +56,7 @@ const displayTaskList = () => {
 const addTask =()=>{
   const description = taskInput.value.trim();
   const date = taskDate.value;
+  console.log(taskTime.value);
   const time = taskTime.value;
 
   if (!description || !date || !time) {
