@@ -35,7 +35,7 @@ const displayTaskList = () => {
     const upHead = document.createElement('h2');
     upHead.textContent = 'Upcoming Tasks';
     taskList.appendChild(upHead);
-    upHead.forEach(task => displaySingleTask(task));
+    upcoming.forEach(task => displaySingleTask(task));
   }
 }
  const displaySingleTask = task => {
