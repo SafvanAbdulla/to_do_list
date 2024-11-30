@@ -3,9 +3,9 @@ const taskDate = document.getElementById('taskDate');
 const taskTime = document.getElementById('taskTime');
 const taskList = document.getElementById('taskList');
 const addTaskButton = document.getElementById('addTaskButton');
-const errorMessage = document.getElementById('errorMessage');
 
 let tasks=JSON.parse(localStorage.getItem('tasks')) || [];
+const today = new Date().toISOString().split('T')[0];
 
 const saveTask=()=>{
   localStorage.setItem('tasks',JSON.stringify(tasks));
@@ -14,9 +14,8 @@ const saveTask=()=>{
 const displayTaskList = () => {
 
   taskList.innerHTML = '';
-  const today = new Date().toISOString().split('T')[0];
-  const due = tasks.filter(task => task.date < today);
   const todayArr = tasks.filter(task => task.date === today);
+  const due = tasks.filter(task => task.date < today);
   const upcoming = tasks.filter(task => task.date > today);
 
   if(due.length){
@@ -25,14 +24,7 @@ const displayTaskList = () => {
     taskList.appendChild(dueHead);
     due.forEach(task => displaySingleTask(task));
   }
-
-  if(todayArr.length){
-    const todayHead = document.createElement('h2');
-    todayHead.textContent = 'Today';
-    taskList.appendChild(todayHead);
-    todayArr.forEach(task => displaySingleTask(task));
-  }
-
+  
   if(upcoming.length){
     const upHead = document.createElement('h2');
     upHead.textContent = 'Upcoming Tasks';
@@ -42,9 +34,14 @@ const displayTaskList = () => {
 }
  const displaySingleTask = task => {
   const taskDiv = document.createElement('div');
+  let currentTaskDate = task.date;
+  if (task.date === today){
+    currentTaskDate="Today";
+  }
   taskDiv.classList.add('task');
   taskDiv.innerHTML = `
-    <span>${task.description} - ${task.time}</span>
+    <span class ="currentTaskDate">${currentTaskDate}<br><br></span>
+    <span>${task.description} at ${task.time}</span>
     <div>
       <button class="edit">Edit</button>
       <button class="delete">Delete</button>
@@ -59,14 +56,12 @@ const addTask =()=>{
   const description = taskInput.value.trim();
   const date = taskDate.value;
   const time = taskTime.value;
-
+  console.log(taskDate);
   if (!description || !date || !time) {
-    errorMessage.textContent = 'Please fill in all fields';
-    errorMessage.style.display = 'block';
+    alert('Please fill in all fields ');
     return;
   }
 
-errorMessage.style.display = 'none';
 
   const newTask = { description, date, time };
   tasks.push(newTask);
