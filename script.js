@@ -15,8 +15,8 @@ const displayTaskList = () => {
 
   taskList.innerHTML = '';
   const today = new Date().toISOString().split('T')[0];
-  const due = tasks.filter(task => task.date < today);
   const todayArr = tasks.filter(task => task.date === today);
+  const due = tasks.filter(task => task.date < today);
   const upcoming = tasks.filter(task => task.date > today);
 
   if(due.length){
