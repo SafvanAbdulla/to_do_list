@@ -24,14 +24,7 @@ const displayTaskList = () => {
     taskList.appendChild(dueHead);
     due.forEach(task => displaySingleTask(task));
   }
-
-  if(todayArr.length){
-    const todayHead = document.createElement('h2');
-    todayHead.textContent = 'Today';
-    taskList.appendChild(todayHead);
-    todayArr.forEach(task => displaySingleTask(task));
-  }
-
+  
   if(upcoming.length){
     const upHead = document.createElement('h2');
     upHead.textContent = 'Upcoming Tasks';
@@ -49,7 +42,7 @@ const displayTaskList = () => {
    }
   taskDiv.classList.add('task');
   taskDiv.innerHTML = `
-    <span class ="currentTaskDate">${currentTaskdate}<br></span>
+    <span class ="currentTaskDate">${currentTaskDate}<br></span>
     <span>${task.description} - ${task.time}</span>
     <div>
       <button class="edit">Edit</button>
