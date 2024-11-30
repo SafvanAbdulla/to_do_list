@@ -11,7 +11,7 @@ const saveTask=()=>{
   localStorage.setItem('tasks',JSON.stringify(tasks));
 };
 
-const displayTaskList=()=>{
+const displayTaskList = () => {
   const today = new Date().toISOString().split('T')[0];
   const due = tasks.filter(task => task.date < today);
   const todayArr = tasks.filter(task => task.date === today);
