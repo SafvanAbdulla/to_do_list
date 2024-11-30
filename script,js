@@ -17,21 +17,21 @@ const displayTaskList=()=>{
   const todayArr = tasks.filter(task => task.date === today);
   const upcoming = tasks.filter(task => task.date > today);
 
-  if((due.length+1) > 0){
+  if(due.length){
     const dueHead = document,createElement('h2');
     dueHead.textContent = 'Due Tasks';
     taskList.appendChild(dueHead);
     due.forEach(task => displaySingleTask(task));
   }
 
-  if((todayArr.length+1) > 0){
+  if(todayArr.length){
     const toadyHead = document,createElement('h2');
     dueHead.textContent = 'Today';
     taskList.appendChild(todayHead);
     todayArr.forEach(task => displaySingleTask(task));
   }
 
-  if((upcoming.length+1) > 0){
+  if(upcoming.length){
     const upHead = document,createElement('h2');
     dueHead.textContent = 'Upcoming Tasks';
     taskList.appendChild(upHead);
