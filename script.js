@@ -6,7 +6,6 @@ const addTaskButton = document.getElementById('addTaskButton');
 
 let tasks=JSON.parse(localStorage.getItem('tasks')) || [];
 const today = new Date().toISOString().split('T')[0];
-console.log(today);
 
 const saveTask=()=>{
   localStorage.setItem('tasks',JSON.stringify(tasks));
@@ -59,7 +58,7 @@ const addTask =()=>{
   const description = taskInput.value.trim();
   const date = taskDate.value;
   const time = taskTime.value;
-
+  console.log(taskDate);
   if (!description || !date || !time) {
     alert('Please fill in all fields ');
     return;
