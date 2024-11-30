@@ -68,7 +68,7 @@ errorMessage.style.display = 'none';
 
   const newTask = { description, date, time };
   tasks.push(newTask);
-  saveTasks();
+  saveTask();
   displayTaskList();
 
   taskInput.value = '';
@@ -80,14 +80,14 @@ const editTask = task => {
   const newDescription = prompt('Edit task description:', task.description);
   if (newDescription) {
     task.description = newDescription;
-    saveTasks();
+    saveTask();
     displayTaskList();
   }
 };
 
 const deleteTask = task => {
   tasks = tasks.filter(t => t !== task);
-  saveTasks();
+  saveTask();
   displayTaskList();
 };
 
