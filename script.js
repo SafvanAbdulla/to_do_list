@@ -18,7 +18,7 @@ const displayTaskList = () => {
   const upcoming = tasks.filter(task => task.date > today);
 
   if(due.length){
-    const dueHead = document,createElement('h2');
+    const dueHead = document.createElement('h2');
     dueHead.textContent = 'Due Tasks';
     taskList.appendChild(dueHead);
     due.forEach(task => displaySingleTask(task));
