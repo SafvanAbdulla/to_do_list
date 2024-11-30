@@ -3,7 +3,6 @@ const taskDate = document.getElementById('taskDate');
 const taskTime = document.getElementById('taskTime');
 const taskList = document.getElementById('taskList');
 const addTaskButton = document.getElementById('addTaskButton');
-const errorMessage = document.getElementById('errorMessage');
 
 let tasks=JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -61,12 +60,10 @@ const addTask =()=>{
   const time = taskTime.value;
 
   if (!description || !date || !time) {
-    errorMessage.textContent = 'Please fill in all fields';
-    errorMessage.style.display = 'block';
+    prompt('Please fill in all fields ');
     return;
   }
 
-errorMessage.style.display = 'none';
 
   const newTask = { description, date, time };
   tasks.push(newTask);
