@@ -12,7 +12,7 @@ const saveTask=()=>{
 };
 
 const displayTaskList=()=>{
-  const today = new Date().toISOString().split('')[0];
+  const today = new Date().toISOString().split('T')[0];
   const due = tasks.filter(task => task.date < today);
   const todayArr = tasks.filter(task => task.date === today);
   const upcoming = tasks.filter(task => task.date > today);
@@ -48,9 +48,6 @@ const displayTaskList=()=>{
       <button class="delete">Delete</button>
     </div>
   `;
-
-  taskDiv.querySelector('.edit').addEventListener('click', ()=> editTask(task));
-  taskDiv.querySelector('.delete').addEventListener('click', ()=> deleteTask(task));
   taskList.appendChild(taskDiv);
 };
 
