@@ -60,7 +60,7 @@ const addTask =()=>{
   const time = taskTime.value;
 
   if (!description || !date || !time) {
-    prompt('Please fill in all fields ');
+    alert('Please fill in all fields ');
     return;
   }
 
