@@ -37,7 +37,7 @@ const displayTaskList = () => {
     taskList.appendChild(upHead);
     due.forEach(task => displaySingleTask(task));
   }
-
+}
  const displaySingleTask = task => {
   const taskDiv = document.createElement('div');
   taskDiv.classList.add('task');
@@ -58,7 +58,7 @@ const addTask =()=>{
   const date = taskDate.value;
   const time = taskTime.value;
 
-  if (description && date && time) {
+  if (!description || !date || !time) {
     errorMessage.textContent = 'Please fill in all fields';
     errorMessage.style.display = 'block';
     return;
@@ -93,4 +93,3 @@ const deleteTask = task => {
 
 addTaskButton.addEventListener('click', addTask);
 displayTaskList();
-}
