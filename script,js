@@ -48,6 +48,8 @@ const displayTaskList=()=>{
       <button class="delete">Delete</button>
     </div>
   `;
+  taskDiv.querySelector('.edit').addEventListener('click', () => editTask(task));
+  taskDiv.querySelector('.delete').addEventListener('click', () => deleteTask(task));
   taskList.appendChild(taskDiv);
 };
 
