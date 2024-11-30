@@ -12,6 +12,7 @@ const saveTask=()=>{
 };
 
 const displayTaskList = () => {
+
   taskList.innerHTML = '';
   const today = new Date().toISOString().split('T')[0];
   const due = tasks.filter(task => task.date < today);
