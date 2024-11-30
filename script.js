@@ -8,7 +8,7 @@ const errorMessage = document.getElementById('errorMessage');
 let tasks=JSON.parse(localStorage.getItem('tasks')) || [];
 
 const saveTask=()=>{
-  localStorage.setItem{'tasks',JSON.stringify(tasks));
+  localStorage.setItem('tasks',JSON.stringify(tasks));
 };
 
 const displayTaskList=()=>{
