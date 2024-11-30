@@ -34,10 +34,13 @@ const displayTaskList = () => {
 }
  const displaySingleTask = task => {
   const taskDiv = document.createElement('div');
-  const currentTaskDate = task.date;
+  let currentTaskDate = task.date;
+  if (task.date === today){
+    currentTaskDate='Today';
+  }
   taskDiv.classList.add('task');
   taskDiv.innerHTML = `
-    <span class ="currentTaskDate">${currentTaskDate}<br></span>
+    <span class ="currentTaskDate">${currentTaskDate}<br><br></span>
     <span>${task.description} - ${task.time}</span>
     <div>
       <button class="edit">Edit</button>
