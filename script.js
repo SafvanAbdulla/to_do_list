@@ -41,7 +41,7 @@ const displayTaskList = () => {
   taskDiv.classList.add('task');
   taskDiv.innerHTML = `
     <span class ="currentTaskDate">${currentTaskDate}<br><br></span>
-    <span>${task.description} - ${task.time}</span>
+    <span>${task.description} at ${task.time}</span>
     <div>
       <button class="edit">Edit</button>
       <button class="delete">Delete</button>
