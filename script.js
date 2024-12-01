@@ -87,5 +87,5 @@ const deleteTask = task => {
 
 addTaskButton.addEventListener('click', addTask);
 searchBar.addEventListener('input',() =>{
-  const filter = searchBar.value.trim();displaytaskList(filter);});
+  const filter = searchBar.value.trim();displayTaskList(filter);});
 displayTaskList();
