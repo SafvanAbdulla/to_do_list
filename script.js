@@ -35,9 +35,6 @@ const displayTaskList = (filter = '') => {
  const displaySingleTask = task => {
   const taskDiv = document.createElement('div');
   let currentTaskDate = task.date;
-  if (task.date === today){
-    currentTaskDate="Today";
-  }
   taskDiv.classList.add('task');
   taskDiv.innerHTML = `
     <span class ="currentTaskDate">${currentTaskDate}<br><br></span>
