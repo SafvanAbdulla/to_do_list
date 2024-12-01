@@ -1,1 +1,48 @@
+* {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f8fc;
+      text-color:#333;
+    }
 
+header {
+    background-color: #3f51b5;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 24px;
+     font-weight: bold;
+    }
+
+.head-div {
+  background-color:white;
+  text-color:#333;
+}
+
+h1 {
+  background-color:#3f51b5;
+  text-color:white;
+}
+
+.search-input,taskInput{
+  background-color:white;
+  text-color:#333;
+  border-color:#ccc;
+}
+
+.addTaskButton {
+  background-color:#4caf50;
+  text-color:white;
+  hover-background-color:#388e3c;
+}
+
+.edit {
+  background-color:#ffca28;
+  text-color:#333;
+  hover-background-color:#fbc02d;
+}
+
+.delete {
+  background-color:#f44336;
+  text-color:white;
+  hover-background-color:#d32f2f;
+}
