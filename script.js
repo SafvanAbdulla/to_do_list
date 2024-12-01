@@ -3,6 +3,7 @@ const taskDate = document.getElementById('taskDate');
 const taskTime = document.getElementById('taskTime');
 const taskList = document.getElementById('taskList');
 const addTaskButton = document.getElementById('addTaskButton');
+const searchBar = document.getElementById('searchBar');
 
 let tasks=JSON.parse(localStorage.getItem('tasks')) || [];
 const today = new Date().toISOString().split('T')[0];
@@ -11,12 +12,11 @@ const saveTask=()=>{
   localStorage.setItem('tasks',JSON.stringify(tasks));
 };
 
-const displayTaskList = () => {
-
+const displayTaskList = (filter = '') => {
+  
   taskList.innerHTML = '';
-  const todayArr = tasks.filter(task => task.date === today);
-  const due = tasks.filter(task => task.date < today);
-  const upcoming = tasks.filter(task => task.date > today);
+  const due = tasks.filter(task => task.date < today && task.description.toLowerCase().includes(filter.toLowerCase()));
+  const upcoming = tasks.filter(task => task.date > today && task.description.toLowerCase().includes(filter.toLowerCase()));
 
   if(due.length){
     const dueHead = document.createElement('h2');
@@ -35,9 +35,6 @@ const displayTaskList = () => {
  const displaySingleTask = task => {
   const taskDiv = document.createElement('div');
   let currentTaskDate = task.date;
-  if (task.date === today){
-    currentTaskDate="Today";
-  }
   taskDiv.classList.add('task');
   taskDiv.innerHTML = `
     <span class ="currentTaskDate">${currentTaskDate}<br><br></span>
@@ -89,4 +86,6 @@ const deleteTask = task => {
 };
 
 addTaskButton.addEventListener('click', addTask);
+searchBar.addEventListener('input',() =>{
+  const filter = searchBar.value.trim();displayTaskList(filter);});
 displayTaskList();
